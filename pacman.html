@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
  </style>
 
@@ -26,6 +27,39 @@
         <img id="animation" src="img/animations.gif" width="140" height="20">
         <img id="ghosts" src="img/ghost.png" width="140" height="20">
     </div>
+
+
+
+    <div class="background-animation" id="backgroundAnimation"></div>
+    <div id="mainMenu">
+        <img src="img/2.gif" alt="Pac-Man" class="pacman-image">
+        <h1>BIENVENIDOS A</h1>
+        <h2>Pac-Man</h2>
+        <button onclick="startGame()">Jugar</button>
+    </div>
+    <div id="gameContainer">
+        <canvas id="canvas" width="500" height="500"></canvas>
+        <button id="restartBtn" onclick="location.reload()">REINICIAR JUEGO</button>
+        <div class="hidden-assets">
+            <img id="animation" src="img/animations.gif" width="140" height="20">
+            <img id="ghosts" src="img/ghost.png" width="140" height="20">
+        </div>
+    </div>
+    <div id="gameOverScreen">
+        <img src="img/pacfin.gif" alt="Game Over" class="final-screen-image">
+        <h1>GAME OVER</h1>
+        <h2>Puntuación: <span id="finalScoreGameOver">0</span></h2>
+        <button onclick="returnToMainMenu()">Volver al Inicio</button>        
+    </div>
+    <div id="victoryScreen">
+        <img src="img/pacfin.gif" alt="Victory" class="final-screen-image">
+        <h1>¡VICTORIA!</h1>
+        <h2>Puntuación: <span id="finalScoreVictory">0</span></h2>
+        <button onclick="returnToMainMenu()">Volver al Inicio</button>
+    </div>
+
+
+
     <script src="ghost.js"></script>
     <script src="pacman.js"></script>
     <script src="game.js"></script>
