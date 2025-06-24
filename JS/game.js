@@ -194,7 +194,8 @@ let onGhostCollision = () => {
     sounds.die.play();
     if (lives === 0) { //cerifica si al jugador ya no le quedan vidas
         isGameOver = true;     //marca que el juego ha terminado
-        drawGameOver();       // Llama a una funcion que probablemente dibuja en la pantalla un mensaje de [GAME OVER]
+        clearInterval(gameInterval);    // Detiene el bucle de juego
+        showGameOverUI();       // Llama a una funcion que probablemente dibuja en la pantalla un mensaje de [GAME OVER]
         return; //Evita que se reinicie el juego si ya se acabo
     }
 
@@ -213,7 +214,9 @@ let update = () => {
     currentLevel++; //aumenta el numero del nivel actual en uno
     if (currentLevel >= levels.length) { //verifica si ya se completaron todos los levels disponibles
         isGameOver = true; //si se completo los niveles, termina con una victoria
-        drawVictory(); //se muestra un mensaje de victoria
+                clearInterval(gameInterval);    // Detiene el bucle de juego
+
+        showVictoryUI();       // Llama a una funcion que probablemente dibuja en la pantalla un mensaje de [GAME OVER]
     } else {
         loadLevel(currentLevel); //si aun uquedan niveles se carga el sig
     }
@@ -404,17 +407,6 @@ let drawGameOver = () => {
     canvasContext.fillStyle = "white";
     // Dibuja el mensaje para reiniciar el juego
     canvasContext.fillText("press f5 para jugar", 30, canvas.height / 2 + 30); //30px desde el borde iz del canvas, coloca el texto un poco debajo del centro vertical del canvas, asi aparece debajo del mensaje GO
-};
-
-    //Texto de Victoria
-let drawVictory = () => {
-    //establece el fondo negro
-    canvasContext.fillStyle = "black";
-    // Cubre todo el canvas con un fondo negro para limpiar lo anterior
-    canvasContext.fillRect(0, 0, canvas.width, canvas.height);
-    canvasContext.font = "30px 'Pixelify Sans'"; //fuente y tamaño
-    canvasContext.fillStyle = "#00FF00"; //establece el color
-    canvasContext.fillText("¡GANASTE TODOS LOS NIVELES!", 10, canvas.height / 2); //muestra el mensaje de victoria en el centro 
 };
 
 
