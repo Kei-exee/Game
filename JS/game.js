@@ -1,3 +1,24 @@
+// Ajustar tamaño y escala del canvas para que sea responsive
+function resizeCanvas() {
+    const baseWidth = map[0].length * oneBlockSize;
+    const baseHeight = map.length * oneBlockSize + 40; 
+
+    // Calcula escala proporcional al tamaño de la pantalla
+    const scaleFactor = Math.min(
+        window.innerWidth / baseWidth,
+        window.innerHeight / baseHeight
+    );
+
+    canvas.width = baseWidth * scaleFactor;
+    canvas.height = baseHeight * scaleFactor;
+
+    // Aplica transformación (escala) al contexto del canvas
+    canvasContext.setTransform(scaleFactor, 0, 0, scaleFactor, 0, 0);
+}
+
+// Llama la función cuando cambia el tamaño de la ventana
+window.addEventListener("resize", resizeCanvas);
+
 const canvas = document.getElementById("canvas"); //se obtiene el elemento canvas del html que tiene el idcanvas, este es el espacio donde se dibuja el juego
 const canvasContext = canvas.getContext("2d"); //se obtiene contexto 2D del canvas, para dibujar en el lineas, img, figuras, etc.
 const pacmanFrames = document.getElementById("animation"); //llama los frames del pacman
