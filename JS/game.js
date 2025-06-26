@@ -45,7 +45,7 @@ const Direction_Right = 4;
 const Direction_up = 3;
 const Direction_left = 2;
 const Direction_down = 1;
-let lives = 23; //vidas del pacman
+let lives = 3; //vidas del pacman
 let ghostCount = 4; //cantidad de fantasmas
 let ghostImageLocations = [ //posiciones de los sprites(img que puedes mover)
     { x: 0, y: 0 },//indica la posicion dentro de la img de los sprites de los fantasmas
